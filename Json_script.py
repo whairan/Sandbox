@@ -1,67 +1,63 @@
 import json
+"""
+This creates a json data file based on a given schema.
+It also allows you to edit the json
+"""
 
-# Path to the JSON file
-file_path = "sample_data.json"
-# Read data from JSON file
-with open(file_path, "r") as json_file:
-    data = json.load(json_file)
+# Data to be written to the JSON file
+data = {
+    "Sample1": {
+        "Attribute1": "Value1",
+        "Attribute2": "Value2",
+        "Attribute3": "Value3"
+    },
+    "Sample2": {
+        "Attribute1": "Value4",
+        "Attribute2": "Value5",
+        "Attribute3": "Value6"
+    },
+    "Sample3": {
+        "Attribute1": "Value7",
+        "Attribute2": "Value8",
+        "Attribute3": "Value9"
+    }
+}
 
-# Access and manipulate the data as needed
-print(data["Sample1"]["Attribute1"])  # Accessing a specific value
-# Modify the data dictionary as needed
-data["Sample1"]["Attribute1"] = "NewValue"
+# Specify the file name
+file_name = "output.json"
 
-# Write the modified data back to the JSON file if desired
-with open(file_path, "w") as json_file:
-    json.dump(data, json_file, indent=5)
+# Write data to the JSON file
+with open(file_name, 'w') as json_file:
+    json.dump(data, json_file, indent=2)
 
-print(f"Data has been read from {file_path}")
-# print formatted json data 
-print(json.dumps(data, indent=5))
+print(f"JSON data has been written to {file_name}")
+
+#__________________________
+
+
+def edit_json(file_name, field_to_edit, new_value):
+    # Read existing data from the JSON file
+    with open(file_name, 'r') as json_file:
+        data = json.load(json_file)
+
+    # Update the specified field with the new value
+    data[field_to_edit] = new_value
+
+    # Write the updated data back to the JSON file
+    with open(file_name, 'w') as json_file:
+        json.dump(data, json_file, indent=2)
+
+    print(f"Field '{field_to_edit}' updated with value '{new_value}' in {file_name}")
+
+
+file_name = "output.json"
+field_to_edit = "sample2"
+new_value = "testing"
+
+# Call the function to edit the JSON file
+edit_json(file_name, field_to_edit, new_value)
+
 
 # To Do: 
-# Create CLI
-
-
-
-
-
-
-
-#__________Create JSON file_____________________________________________________________________________
-# import json
-
-# # Define your data
-# data = {
-#     "Sample1": {
-#         "Attribute1": "Value1",
-#         "Attribute2": "Value2",
-#         "Attribute3": "Value3"
-#     },
-#     "Sample2": {
-#         "Attribute1": "Value4",
-#         "Attribute2": "Value5",
-#         "Attribute3": "Value6"
-#     },
-#     "Sample3": {
-#         "Attribute1": "Value7",
-#         "Attribute2": "Value8",
-#         "Attribute3": "Value9"
-#     }
-# }
-
-# # Specify the file path where you want to save the JSON file
-# file_path = "sample_data.json"
-
-# # Write the data to the JSON file
-# with open(file_path, "w") as json_file:
-#     json.dump(data, json_file, indent=4)
-
-# print(f"Data has been written to {file_path}")
-
-
-"""
-Notes: 
-- https://12factor.net/
-
-"""
+# parse any part of the json file and edit
+# Create a CLI for the above task

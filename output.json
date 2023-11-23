@@ -1,0 +1,18 @@
+{
+  "Sample1": {
+    "Attribute1": "Value1",
+    "Attribute2": "Value2",
+    "Attribute3": "Value3"
+  },
+  "Sample2": {
+    "Attribute1": "Value4",
+    "Attribute2": "Value5",
+    "Attribute3": "Value6"
+  },
+  "Sample3": {
+    "Attribute1": "Value7",
+    "Attribute2": "Value8",
+    "Attribute3": "Value9"
+  },
+  "sample2": "testing"
+}
